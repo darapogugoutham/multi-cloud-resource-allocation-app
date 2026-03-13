@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Multi-Cloud Resource Allocation Application
 
 This project is a web application that allows users to perform multi-cloud resource allocation and visualize performance metrics dynamically. It consists of a frontend built with React.js and a backend powered by Node.js.
@@ -100,3 +101,6 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ### License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
+=======
+# multi-cloud-resource-allocation-app
+>>>>>>> d5ebfc5162e4f6035b0346a2ac32bca3dfe9ea60
