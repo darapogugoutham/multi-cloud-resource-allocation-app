@@ -1,5 +1,8 @@
-class MetricsController {
-    async getMetrics(req, res) {
+import { Request, Response } from 'express';
+import { resourceService } from '../services/resourceService';
+
+export class MetricsController {
+    async getMetrics(req: Request, res: Response) {
         try {
             // Logic to retrieve current performance metrics
             const metrics = await this.fetchMetrics();
@@ -9,7 +12,7 @@ class MetricsController {
         }
     }
 
-    async getHistoricalData(req, res) {
+    async getHistoricalData(req: Request, res: Response) {
         try {
             // Logic to retrieve historical performance data
             const historicalData = await this.fetchHistoricalData();
@@ -20,14 +23,30 @@ class MetricsController {
     }
 
     async fetchMetrics() {
-        // Placeholder for fetching metrics logic
-        return {};
+        // Return metrics based on current resource allocation
+        return resourceService.generateMetrics();
     }
 
     async fetchHistoricalData() {
-        // Placeholder for fetching historical data logic
-        return {};
+        // Return allocation history
+        const allocations = resourceService.getAllAllocations();
+        
+        if (allocations.length === 0) {
+            return {
+                message: 'No allocation history yet',
+                allocations: 0
+            };
+        }
+
+        return allocations.map((alloc, idx) => ({
+            id: `hist-${idx}`,
+            timestamp: alloc.timestamp,
+            allocation: alloc,
+            summary: {
+                totalAllocated: Object.values(alloc.resources).reduce((a, b) => a + b, 0),
+                strategy: alloc.strategy,
+                providers: Object.keys(alloc.resources)
+            }
+        }));
     }
 }
-
-export default MetricsController;

@@ -22,17 +22,24 @@ const Analytics: React.FC = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className="loading"><div className="spinner"></div> Loading analytics...</div>;
     }
 
     return (
-        <div>
-            <h1>Analytics</h1>
-            {metricsData ? (
-                <PerformanceMetrics data={metricsData} />
-            ) : (
-                <div>No metrics data available.</div>
-            )}
+        <div className="fade-in">
+            <div className="hero" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'  }}>
+                <h1>📈 Analytics Dashboard</h1>
+                <p>Real-time performance analysis and insights across all cloud providers</p>
+            </div>
+            <div style={{ marginTop: '2rem' }}>
+                {metricsData ? (
+                    <PerformanceMetrics data={metricsData} />
+                ) : (
+                    <div className="card">
+                        <p style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>📊 No metrics data available.</p>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

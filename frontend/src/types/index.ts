@@ -21,3 +21,6 @@ export interface AllocationStrategy {
     resourceRequirements: Resource[];
     targetProviders: string[];
 }
+
+// Type aliases for convenience
+export type MetricData = Metric;

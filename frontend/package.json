@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -12,6 +12,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "react-router-dom": "^5.3.0",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "react-chartjs-2": "^2.11.1"
@@ -19,6 +20,19 @@
   "devDependencies": {
     "typescript": "^4.1.2",
     "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0"
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.3.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
